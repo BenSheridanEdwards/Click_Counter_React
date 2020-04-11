@@ -32,17 +32,13 @@ const findByTestAttr = (wrapper, val) => {
   return wrapper.find(`[data-test="${val}"]`);
 }
 
+
 test('renders without error', () =>{
   const wrapper = setup();
   const appComponent = findByTestAttr(wrapper, 'component-app');
   expect(appComponent.length).toBe(1);
 });
 
-test('renders increment button', () => {
-  const wrapper = setup();
-  const button = findByTestAttr(wrapper, 'increment-button');
-  expect(button.length).toBe(1);
-});
 
 test('renders counter display', () => {
   const wrapper = setup();
@@ -56,29 +52,87 @@ test('counter starts at 0', () => {
   expect(initialCounterState).toBe(0)
 });
 
-test('renders increment button and upon clicking, increments counter display', () => {
-  const counter = 7;
-  const wrapper = setup(null, { counter })
+describe('Increment', () => {
 
-  // find button and click
-  const button = findByTestAttr(wrapper, 'increment-button')
-  button.simulate('click');
+  test('renders increment button', () => {
+    const wrapper = setup();
+    const button = findByTestAttr(wrapper, 'increment-button');
+    expect(button.length).toBe(1);
+  });
 
-  // find display and test value
-  const counterDisplay = findByTestAttr(wrapper, 'counter-display')
-  expect(counterDisplay.text()).toContain(counter + 1)
+  test('clicking increment button increments counter display', () => {
+    const counter = 7;
+    const wrapper = setup(null, { counter })
+
+    // find button and click
+    const button = findByTestAttr(wrapper, 'increment-button')
+    button.simulate('click');
+
+    // find display and test value
+    const counterDisplay = findByTestAttr(wrapper, 'counter-display')
+    expect(counterDisplay.text()).toContain(counter + 1)
+  });
 });
 
-test('renders decrement button and upon clicking, decrements counter display', () => {
-  // Setup wrapper setting state to counter
-  const counter = 7
-  const wrapper = setup(null, { counter })
+describe('Decrement', () => {
 
-  // Find button and simulate click
-  const button = findByTestAttr(wrapper, 'decrement-button')
-  button.simulate('click')
+  test('renders decrement button', () => {
+    const wrapper = setup();
+    const button = findByTestAttr(wrapper, 'decrement-button');
+    expect(button.length).toBe(1);
+  });
 
-  // Expect the counter display to decrement by 1
-  const counterDisplay = findByTestAttr(wrapper, 'counter-display')
-  expect(counterDisplay.text()).toContain("6")
+  test('clicking decrement button decrements counter display when state is greater than 0', () => {
+    // Setup wrapper setting state to counter
+    const counter = 7
+    const wrapper = setup(null, { counter })
+
+    // Find button and simulate click
+    const button = findByTestAttr(wrapper, 'decrement-button')
+    button.simulate('click')
+
+    // Expect the counter display to decrement by 1
+    const counterDisplay = findByTestAttr(wrapper, 'counter-display')
+    expect(counterDisplay.text()).toContain(6)
+  })
+
+  test('error does not show when not needed', () => {
+    // Implement error message using a 'hidden class' for the error div
+    const wrapper = setup();
+    const errorDiv = findByTestAttr(wrapper, 'error-message');
+
+    const errorHasHiddenClass = errorDiv.hasClass('hidden');
+    expect(errorHasHiddenClass).toBe(true);
+  })
+})
+
+describe('Counter is 0 and decrement is clicked', () => {
+  let wrapper
+  beforeEach(() => {
+    wrapper = setup();
+
+    const button = findByTestAttr(wrapper, 'decrement-button');
+    button.simulate('click')
+    wrapper.update();
+  })
+
+  test('error shows', () => {
+    const errorDiv = findByTestAttr(wrapper, 'error-message');
+    const errorHasHiddenClass = errorDiv.hasClass('hidden');
+    expect(errorHasHiddenClass).toBe(false);
+  });
+
+  test('counter still displays 0', () => {
+    const counterDisplay = findByTestAttr(wrapper, 'counter-display')
+    expect(counterDisplay.text()).toContain(0)
+  })
+
+  test('clicking increment clears error', () => {
+    const button = findByTestAttr(wrapper, 'increment-button');
+    button.simulate('click');
+
+    const errorDiv = findByTestAttr(wrapper, 'error-message');
+    const errorHasHiddenClass = errorDiv.hasClass('hidden');
+    expect(errorHasHiddenClass).toBe(true);
+  })
 })
