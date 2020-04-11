@@ -8,7 +8,7 @@ class App extends Component {
 
     this.state = {
       counter: 0,
-      error: false
+      error: false,
     };
 
     this.incrementCounter = this.incrementCounter.bind(this)
@@ -35,12 +35,11 @@ class App extends Component {
     const errorClass = this.state.error ? '' : 'hidden';
 
     return (
-      <div data-test="component-app">
-        <h1 data-test="counter-display">The counter is currently { this.state.counter }</h1>
-        <div data-test="error-message" className={`error ${errorClass}`}>
-          The counter cannot go below 0
-        </div>
+      <div data-test="component-app" className="ui center aligned raised very padded text container segment">
+        <h1 data-test="counter-display" className="ui huge black circular label col-centered">{ this.state.counter }</h1>
+        <p></p>
         <button 
+          className="ui inverted green button left"
           data-test="increment-button"
           onClick={this.incrementCounter}
           >
@@ -48,11 +47,16 @@ class App extends Component {
         </button>
 
         <button
+          className="ui inverted red button"
           data-test="decrement-button"
           onClick={this.decrementCounter}
           >
           Decrement counter
         </button>
+        <p></p>
+        <div data-test="error-message" className={`ui compact message error ${errorClass}`}>
+          The counter cannot go below 0
+        </div>
       </div>
     );
   }
