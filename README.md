@@ -11,20 +11,23 @@ A simple counter app made with React. You can increment or decrement the counter
 ## <a name="user-stories">User Stories</a>
 
 ```
-As a user, when I use Counter.
+As a user of Click Counter,
 I expect to see a counter display, telling me my current count.
 ```
 ```
-As a user, when I use Click Counter.
-When I click incredment, I expect to see the counter display value to increase by 1.
+As a user of Click Counter,
+when I click incredment, 
+I expect to see the counter display value to increase by 1.
 ```
 ```
-As a user, when I use Click Counter.
-When I click decredment, I expect to see the counter display value to decrease by 1.
+As a user of Click Counter,
+when I click decredment, 
+I expect to see the counter display value to decrease by 1.
 ```
 ```
-As a user, when I use Click Counter.
-When I click decredment when the counter equals 0, I expect to see an error and the counter not to be decremented.
+As a user of Click Counter,
+when the counter is 0 and I click decredment, 
+I expect to see an error and the counter not to be decremented to -1.
 ```
 
 ## <a name="mockups">Mockups</a>
