@@ -32,13 +32,13 @@ I expect to see an error and the counter not to be decremented to -1.
 
 ## <a name="mockups">Mockups</a>
 
-![Click Counter Mockup]()
+![Click Counter Mockup](https://github.com/BenSheridanEdwards/Click_Counter_React/blob/master/media/ClickCounter-MockUp.png)
 
 <a name="app-showcase"><br /></a>
 
 ## Application Showcase
 
-![Application Screenrecording]()
+![Application Screenrecording](https://github.com/BenSheridanEdwards/Click_Counter_React/blob/master/media/ClickCounter-AppShowcase.gif)
 
 ## <a name="installation">Installation Instructions</a>
 
