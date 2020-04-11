@@ -38,7 +38,7 @@ I expect to see an error and the counter not to be decremented to -1.
 
 ## Application Showcase
 
-![Application Screenrecording](https://github.com/BenSheridanEdwards/Click_Counter_React/blob/master/media/ClickCounter-AppShowcase.gif)
+![Application Screenrecording](https://github.com/BenSheridanEdwards/Click_Counter_React/blob/master/media/ClickCounter-AppShowcaseGif.gif)
 
 ## <a name="installation">Installation Instructions</a>
 
