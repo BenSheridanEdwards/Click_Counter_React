@@ -3,6 +3,7 @@ import Enzyme, { shallow, ShallowWrapper } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 
 import App from './App';
+import { findAllByTestId } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new EnzymeAdapter()})
 
@@ -55,7 +56,7 @@ test('counter starts at 0', () => {
   expect(initialCounterState).toBe(0)
 });
 
-test('renders clicking button increments counter display', () => {
+test('renders increment button and upon clicking, increments counter display', () => {
   const counter = 7;
   const wrapper = setup(null, { counter })
 
@@ -67,3 +68,17 @@ test('renders clicking button increments counter display', () => {
   const counterDisplay = findByTestAttr(wrapper, 'counter-display')
   expect(counterDisplay.text()).toContain(counter + 1)
 });
+
+test('renders decrement button and upon clicking, decrements counter display', () => {
+  // Setup wrapper setting state to counter
+  const counter = 7
+  const wrapper = setup(null, { counter })
+
+  // Find button and simulate click
+  const button = findByTestAttr(wrapper, 'decrement-button')
+  button.simulate('click')
+
+  // Expect the counter display to decrement by 1
+  const counterDisplay = findByTestAttr(wrapper, 'counter-display')
+  expect(counterDisplay.text()).toContain("6")
+})
