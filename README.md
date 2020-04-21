@@ -1,12 +1,16 @@
 # Click Counter
 
+[![CircleCI](https://circleci.com/gh/BenSheridanEdwards/Click_Counter_React.svg?style=svg)](https://circleci.com/gh/BenSheridanEdwards/Click_Counter_React)
+[![Maintainability](https://api.codeclimate.com/v1/badges/32d8f217be4f246461fa/maintainability)](https://codeclimate.com/github/BenSheridanEdwards/Click_Counter_React/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/32d8f217be4f246461fa/test_coverage)](https://codeclimate.com/github/BenSheridanEdwards/Click_Counter_React/test_coverage)
+
 [Description](#description) | [User Stories](#user-stories) | [Mockups](#mockups) | [Application Showcase](#app-showcase) | [Installation Instructions](#installation)
 
 ## <a name="description">Description</a>
 
 A simple counter app made with React. You can increment or decrement the counter. It throws an error if you try to decrement 0. 
 
-*Tech Stack: JavaScript, React, Node, CSS, HTML, Jest, Enzyme, Webpack, Babel*
+**Tech Stack:** *JavaScript, React, Node, CSS, HTML, Jest, Enzyme, Webpack, Babel, CircleCI, Code Climate, Firebase*
 
 ## <a name="user-stories">User Stories</a>
 
