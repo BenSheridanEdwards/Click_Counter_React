@@ -12,6 +12,8 @@ A simple counter app made with React. You can increment or decrement the counter
 
 **Tech Stack:** *JavaScript, React, Node, CSS, HTML, Jest, Enzyme, Webpack, Babel, CircleCI, Code Climate, Firebase*
 
+You'll find the app [here](https://click-counter-react.web.app/), use cmd/window + click to open in a new tab.
+
 ## <a name="user-stories">User Stories</a>
 
 ```
