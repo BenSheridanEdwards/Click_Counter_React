@@ -75,7 +75,7 @@ $ npm test
 
 ### Seeing Test Coverage
 
-From inside the project folder, you can run 'npm test -- --coverage' in the terminal to see the code coverage for this project.
+From inside the project folder, you can run `npm test -- --coverage` in the terminal to see the code coverage for this project.
 
 ```
 $ npm test -- --coverage
